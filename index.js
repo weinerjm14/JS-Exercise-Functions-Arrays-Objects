@@ -60,9 +60,10 @@ function makePersonObject(id, name, email) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(arr) {
+
+function getName(obj) {
   
-   return (`Hello, my name is ${arr.name}`);
+   return (`Hello, my name is ${obj.name}`);
 }
 
 /**
@@ -168,7 +169,7 @@ function getCarInfoByIndex(inventory, index) {
 function getLastCarInfo(inventory) {
   const index = inventory.length -1;
   const lastCar = inventory[index];
-  return `This is a ${lastCar.car_make} ${lastCar.car_model}`
+  return `This is a ${lastCar.car_make} ${lastCar.car_model}`;
 }
 
 /**
@@ -184,14 +185,12 @@ function getLastCarInfo(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoById(inventory, id) {
-  let car = null;
-  for (i = 0; i < inventory.length; i++) {
-      if (id = inventory[i].id)
-      car = i;
-    }
-    
-  return `This is an ${car.car_make} ${car.car_model}`;
-}
+  // let car = null;
+    for (let i = 0; i < inventory.length; i++)
+    return `This is a ${inventory[i].car_make} ${inventory[i].car_model}`
+  }
+   
+  // return `This is a ${car.car_make} ${car.car_model}`;
 
 /**
  * ### Challenge `sortCarInventory`
@@ -267,9 +266,16 @@ function getOlderCars(inventory, maxYear) {
 function getGermanCars(inventory) {
   const germanCar = [];
     for (i = 0; i < inventory.length; i++) {
-    if (inventory[i].car_make == `Audi` || `Mercedes-Benz` || `Volkswagon` || `BMW`) {
+    if (inventory[i].car_make === `Audi`) {
+      germanCar.push(inventory[i]);
+    } else if (inventory[i].car_make === `Mercedes-Benz`){
+      germanCar.push(inventory[i]);
+    } else if (inventory[i].car_make ===  `Volkswagon`){
+      germanCar.push(inventory[i]);
+    }else if (inventory[i].car_make === `BMW`){
       germanCar.push(inventory[i]);
     };
+    
   }
     return germanCar;
 }

@@ -264,11 +264,17 @@ function getOlderCars(inventory, maxYear) {
  * in the same order as they appear in the original inventory.
 */
 function getGermanCars(inventory) {
-  const germanCar = [];
-    for (i = 0; i < germanCar.length; i++) {
-    if (germanCar[i].car_make === `Audi` || `Mercedes-Benz` || `Volkswagon` || `BMW`) {
+  let germanCar = [];
+    for (i = 0; i < inventory.length; i++) {
+    if (inventory[i].car_make === `Audi`) {
       germanCar.push(inventory[i]);
-    }
+    } else if (inventory[i].car_make === `Volkswagen`){
+      germanCar.push(inventory[i]);
+    }else if (inventory[i].car_make === `Mercedes-Benz`){
+      germanCar.push(inventory[i]);
+    }else if (inventory[i].car_make == `BMW`) {
+      germanCar.push(inventory[i]);
+    };
     
   }
     return germanCar;

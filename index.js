@@ -184,7 +184,12 @@ function getLastCarInfo(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoById(inventory, id) {
-  const car = inventory[id];
+  let car = null;
+  for (i = 0; i < inventory.length; i++) {
+      if (id = inventory[i].id)
+      car = i;
+    }
+    
   return `This is an ${car.car_make} ${car.car_model}`;
 }
 
@@ -241,7 +246,7 @@ function getModelYears(inventory) {
 function getOlderCars(inventory, maxYear) {
   const cars = [];
   for (i = 0; i < inventory.length; i++){
-    if(inventory.car_year <= maxYear){
+    if(inventory[i].car_year <= maxYear){
       cars.push(inventory[i]);
     }
   }

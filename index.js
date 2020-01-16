@@ -202,9 +202,9 @@ function getCarInfoById(inventory, id) {
 */
 function sortCarInventory(inventory) {
   inventory.sort((x, y) => {
-    if (x > y) {
+    if (x.car_model > y.car_model) {
       return 1; // move x forward
-    } else if (x === y) {
+    } else if (x.car_model === y.car_model) {
       return 0; // they are the same
     } else {
       return -1; // move x back
@@ -265,16 +265,10 @@ function getOlderCars(inventory, maxYear) {
 */
 function getGermanCars(inventory) {
   const germanCar = [];
-    for (i = 0; i < inventory.length; i++) {
-    if (inventory[i].car_make === `Audi`) {
+    for (i = 0; i < germanCar.length; i++) {
+    if (germanCar[i].car_make === `Audi` || `Mercedes-Benz` || `Volkswagon` || `BMW`) {
       germanCar.push(inventory[i]);
-    } else if (inventory[i].car_make === `Mercedes-Benz`){
-      germanCar.push(inventory[i]);
-    } else if (inventory[i].car_make ===  `Volkswagon`){
-      germanCar.push(inventory[i]);
-    }else if (inventory[i].car_make === `BMW`){
-      germanCar.push(inventory[i]);
-    };
+    }
     
   }
     return germanCar;
